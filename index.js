@@ -1,9 +1,4 @@
-const daysEl = document.querySelector('[data-value="days"]');
-const hoursEl = document.querySelector('[data-value="hours"]');
-const minutesEl = document.querySelector('[data-value="mins"]');
-const secondsEl = document.querySelector('[data-value="secs"]');
-
-class CountdownTimer{
+class CountdownTimer {
   constructor({onTick, selector, targetDate}) {
     this.onTick = onTick;
     this.selector = selector;
@@ -47,9 +42,24 @@ const timer = new CountdownTimer({
 timer.start();
 
 function updateClockface({ days, hours, mins, secs }) {
+  const boxEl = document.querySelector(this.selector);
+  const daysEl = boxEl.querySelector('[data-value="days"]');
+  const hoursEl = boxEl.querySelector('[data-value="hours"]');
+  const minutesEl = boxEl.querySelector('[data-value="mins"]');
+  const secondsEl = boxEl.querySelector('[data-value="secs"]');
+  
   daysEl.textContent = `${days}`;
   hoursEl.textContent = `${hours}`;
   minutesEl.textContent = `${mins}`;
   secondsEl.textContent = `${secs}`;
 };
 
+
+
+// const secondTimer = new CountdownTimer({
+//   onTick: updateClockface,
+//   selector: '#timer-2',
+//   targetDate: new Date('Jul 17, 2022'),
+// });
+
+// secondTimer.start()
